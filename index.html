@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wrench Guys | Commercial & Residential HVAC | Greater Boston, MA</title>
+<meta name="description" content="Wrench Guys provides expert commercial and residential HVAC repair, installation, and maintenance throughout Greater Boston and Eastern MA. Licensed and insured. Call 617-991-8398.">
+<!-- =====================================================
+     ANALYTICS & TRACKING
+     Replace placeholder IDs before going live:
+       GA4:      G-XXXXXXXXXX  → from analytics.google.com
+       Search Console: (meta tag below) → from search.google.com/search-console
+       Clarity:  xxxxxxxxxx    → from clarity.microsoft.com
+     ===================================================== -->
+
+<!-- Google Search Console Verification -->
+<meta name="google-site-verification" content="REPLACE_WITH_SEARCH_CONSOLE_CODE">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+
+  // Track phone number clicks as conversions
+  function trackPhoneClick() {
+    gtag('event', 'phone_call_click', {
+      event_category: 'conversion',
+      event_label: '617-991-8398'
+    });
+  }
+
+  // Track when user scrolls to the scheduler (shows intent)
+  var schedulerTracked = false;
+  window.addEventListener('scroll', function() {
+    var scheduler = document.getElementById('schedule');
+    if (!schedulerTracked && scheduler) {
+      var rect = scheduler.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        schedulerTracked = true;
+        gtag('event', 'scheduler_viewed', {
+          event_category: 'engagement',
+          event_label: 'ServiceTitan Scheduler'
+        });
+      }
+    }
+  });
+</script>
+
+<!-- Microsoft Clarity (session recordings + heatmaps) -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "REPLACE_WITH_CLARITY_ID");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:        #C8102E;
+    --red-dark:   #A50D25;
+    --red-light:  #E8193A;
+    --navy:       #0F1F3D;
+    --navy-mid:   #162645;
+    --navy-light: #1E3260;
+    --white:      #FFFFFF;
+    --off-white:  #F4F6FA;
+    --light-gray: #E8ECF2;
+    --mid-gray:   #8895A7;
+    --dark-gray:  #3D4D60;
+    --text:       #1A2638;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--navy);
+    color: #A8BBCF;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 8px 0;
+  }
+  .topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topbar a { color: #A8BBCF; text-decoration: none; }
+  .topbar-right { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--light-gray);
+    box-shadow: 0 2px 16px rgba(15,31,61,0.1);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    gap: 24px;
+  }
+  .logo-img { height: 60px; width: auto; object-fit: contain; display: block; }
+
+  nav { display: flex; gap: 28px; align-items: center; }
+  nav a {
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  nav a:hover { color: var(--red); border-bottom-color: var(--red); }
+
+  .header-phone-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+  .header-phone-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+  }
+  .header-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--red);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+  .header-phone:hover { color: var(--red-dark); }
+
+  /* Hamburger */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -55deg, transparent, transparent 40px,
+      rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 80px
+    );
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(ellipse, rgba(200,16,46,0.22) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 32px;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 56px;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--red-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--red);
+  }
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--red-light); }
+  .hero-sub {
+    font-size: 1rem;
+    color: #A8BBCF;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 36px;
+  }
+  .hero-sub strong { color: var(--white); font-weight: 600; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+  .btn-red {
+    background: var(--red);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 3px;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-red:hover { background: var(--red-light); transform: translateY(-1px); }
+
+  .btn-outline-white {
+    border: 2px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 3px;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline-white:hover { border-color: var(--red-light); color: var(--red-light); }
+
+  /* Hero card */
+  .hero-card {
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+  .hero-card-header { background: var(--red); padding: 18px 24px; }
+  .hero-card-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .hero-card-header p { font-size: 0.78rem; color: rgba(255,255,255,0.75); margin-top: 3px; }
+  .hero-card-body { padding: 24px; }
+  .hero-card-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-gray);
+    font-size: 0.88rem;
+    color: var(--dark-gray);
+    line-height: 1.45;
+  }
+  .hero-card-row:last-of-type { border-bottom: none; }
+  .hcr-icon { color: var(--red); font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+  .hero-card-cta {
+    display: block;
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    padding: 16px;
+    margin: 0 24px 24px;
+    border-radius: 3px;
+    transition: background 0.2s;
+  }
+  .hero-card-cta:hover { background: var(--navy-light); }
+  .hero-card-cta small {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    opacity: 0.65;
+    margin-top: 2px;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar { background: var(--red); }
+  .trust-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.92);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 14px 12px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    flex: 1;
+    justify-content: center;
+  }
+  .trust-item:last-child { border-right: none; }
+
+  /* ── SHARED ── */
+  section { padding: 88px 0; }
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .section-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--red); }
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .section-intro { font-size: 1rem; color: var(--dark-gray); line-height: 1.7; max-width: 560px; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--off-white); }
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--light-gray);
+    border: 2px solid var(--light-gray);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 32px 28px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-card:hover { background: #FAFBFD; }
+  .svc-icon {
+    width: 44px; height: 44px;
+    background: rgba(200,16,46,0.08);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+  }
+  .service-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .service-card p { font-size: 0.88rem; color: var(--dark-gray); line-height: 1.65; margin-bottom: 16px; }
+  .svc-link {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--red);
+    text-decoration: none;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .svc-link:hover { text-decoration: underline; }
+
+  /* ── WHY US ── */
+  #why { background: var(--white); }
+  .why-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; margin-top: 52px; }
+  .why-list { display: flex; flex-direction: column; }
+  .why-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .why-item:first-child { padding-top: 0; }
+  .why-item:last-child { border-bottom: none; }
+  .why-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--light-gray);
+    line-height: 1;
+    min-width: 40px;
+    letter-spacing: -0.03em;
+  }
+  .why-text h4 { font-family: 'Montserrat', sans-serif; font-size: 0.98rem; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+  .why-text p { font-size: 0.88rem; color: var(--dark-gray); line-height: 1.65; }
+
+  .creds-card { background: var(--navy); border-radius: 6px; overflow: hidden; }
+  .creds-card-header { background: var(--red); padding: 20px 28px; }
+  .creds-card-header h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .creds-list { padding: 8px 28px 20px; }
+  .cred-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    color: #A8BBCF;
+    font-size: 0.88rem;
+  }
+  .cred-row:last-child { border-bottom: none; }
+  .cred-check { color: var(--red-light); font-size: 0.9rem; }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-cell {
+    padding: 20px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: var(--red-light); display: block; }
+  .stat-lbl { font-size: 0.72rem; color: var(--mid-gray); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--off-white); }
+  .testi-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
+  .google-badge { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: var(--dark-gray); }
+  .google-stars { color: #F59E0B; font-size: 1.1rem; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .testi-card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 28px;
+    box-shadow: 0 2px 12px rgba(15,31,61,0.06);
+    border-left: 4px solid var(--red);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .testi-stars { color: #F59E0B; font-size: 0.95rem; }
+  .testi-card blockquote { font-size: 0.9rem; color: var(--dark-gray); line-height: 1.7; font-style: italic; flex: 1; }
+  .testi-reviewer strong { font-size: 0.88rem; font-weight: 700; color: var(--navy); display: block; }
+  .testi-reviewer span { font-size: 0.78rem; color: var(--mid-gray); }
+
+  /* ── SERVICE AREA ── */
+  #area { background: var(--navy); }
+  #area h2 { color: var(--white); }
+  #area .section-intro { color: #A8BBCF; }
+  .area-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; align-items: start; }
+  .towns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 24px;
+  }
+  .town-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.87rem;
+    color: #A8BBCF;
+  }
+  .town-row::before { content: ''; color: var(--red-light); font-size: 0.72rem; }
+  .map-box {
+    background: var(--navy-light);
+    border-radius: 6px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px dashed rgba(255,255,255,0.15);
+    color: #A8BBCF;
+  }
+  .map-box .map-i { font-size: 2.8rem; opacity: 0.3; }
+  .map-box p { font-size: 0.8rem; opacity: 0.5; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── EMERGENCY BAND ── */
+  .emerg-band { background: var(--red); padding: 22px 32px; text-align: center; }
+  .emerg-band p { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 800; color: white; }
+  .emerg-band a { color: white; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ── SCHEDULE SECTION ── */
+  #schedule { background: var(--off-white); }
+
+  .contact-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 36px 0 40px;
+  }
+  .contact-chip {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(15,31,61,0.06);
+    border-top: 3px solid var(--red);
+  }
+  .chip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+  .chip-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-bottom: 4px;
+  }
+  .chip-value {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .chip-value:hover { color: var(--red); }
+
+  .scheduler-wrap {
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(15,31,61,0.08);
+    border: 1px solid var(--light-gray);
+  }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); color: #A8BBCF; padding: 56px 0 0; }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 48px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-logo-img { height: 52px; width: auto; margin-bottom: 14px; display: block; }
+  .footer-about { font-size: 0.85rem; line-height: 1.7; color: #7A90A8; margin-bottom: 20px; }
+  .footer-social { display: flex; gap: 10px; }
+  .social-link {
+    width: 34px; height: 34px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: #7A90A8;
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: 700;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-link:hover { border-color: var(--red); color: var(--red-light); }
+  .footer-col h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col li a { color: #7A90A8; font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .footer-col li a:hover { color: var(--red-light); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #4A5E73;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-lic { display: flex; align-items: center; gap: 6px; }
+  .footer-lic span { color: var(--red-light); }
+
+  /* ── MOBILE STICKY SOS ── */
+  .mobile-sos {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--red);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+  }
+  .mobile-sos a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 15px 20px 10px;
+  }
+  .mobile-sos-sub {
+    display: block;
+    text-align: center;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.75);
+    padding: 0 16px 10px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.5s ease 0.1s both; }
+  .hero h1      { animation: fadeUp 0.5s ease 0.2s both; }
+  .hero-sub     { animation: fadeUp 0.5s ease 0.3s both; }
+  .hero-actions { animation: fadeUp 0.5s ease 0.4s both; }
+  .hero-card    { animation: fadeUp 0.5s ease 0.25s both; }
+
+  /* ════════════════════════════
+     RESPONSIVE BREAKPOINTS
+  ════════════════════════════ */
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 32px; }
+    .hero-card { max-width: 520px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-layout { grid-template-columns: 1fr; gap: 48px; }
+    .testi-grid { grid-template-columns: repeat(2, 1fr); }
+    .area-layout { grid-template-columns: 1fr; gap: 40px; }
+    .map-box { height: 260px; }
+    .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    /* Top bar stacks */
+    .topbar-inner { flex-direction: column; text-align: center; gap: 4px; }
+    .topbar-right { justify-content: center; gap: 12px; }
+
+    /* Header */
+    .header-inner { padding: 0 20px; height: 66px; position: relative; }
+    .logo-img { height: 46px; }
+    .header-phone-wrap { display: none; }
+    .nav-toggle { display: flex; }
+
+    /* Nav drops down from header */
+    nav {
+      display: none;
+      position: absolute;
+      top: 66px; left: 0; right: 0;
+      background: var(--white);
+      flex-direction: column;
+      gap: 0;
+      border-top: 3px solid var(--red);
+      box-shadow: 0 8px 24px rgba(15,31,61,0.15);
+      padding: 6px 0 12px;
+      z-index: 99;
+    }
+    nav.open { display: flex; }
+    nav a {
+      padding: 13px 24px;
+      border-bottom: 1px solid var(--light-gray);
+      font-size: 0.92rem;
+      border-right: none;
+    }
+    nav a:last-child { border-bottom: none; }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    .section-inner { padding: 0 20px; }
+
+    /* Hero */
+    .hero-inner { padding: 40px 20px 36px; gap: 32px; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero-sub { font-size: 0.92rem; }
+    .hero-actions { flex-direction: column; }
+    .btn-red, .btn-outline-white { width: 100%; text-align: center; padding: 15px; font-size: 0.92rem; }
+    .hero-card { max-width: 100%; }
+
+    /* Trust bar wraps to 2-col grid */
+    .trust-bar-inner {
+      flex-wrap: wrap;
+      padding: 6px 16px;
+      justify-content: flex-start;
+    }
+    .trust-item {
+      flex: 0 0 calc(50% - 1px);
+      justify-content: flex-start;
+      border-right: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 8px;
+      font-size: 0.7rem;
+    }
+    .trust-item:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,0.15); }
+    .trust-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    /* Services */
+    h2 { font-size: 1.9rem; }
+    .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .services-header .btn-red { width: 100%; text-align: center; }
+    .services-grid { grid-template-columns: 1fr; gap: 0; border-radius: 4px; }
+    .service-card { padding: 24px 20px; }
+
+    /* Testimonials */
+    .testi-grid { grid-template-columns: 1fr; }
+    .testi-header { flex-direction: column; align-items: flex-start; }
+
+    /* Service area */
+    .towns-grid { grid-template-columns: 1fr 1fr; }
+    .map-box { height: 200px; }
+
+    /* Hide desktop emerg band; mobile SOS bar takes over */
+    .emerg-band { display: none; }
+    .mobile-sos { display: block; }
+    body { padding-bottom: 76px; }
+
+    /* Scheduler section */
+    .contact-strip { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .scheduler-wrap iframe { height: 600px; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; padding: 0 20px 36px; }
+    .footer-bottom { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+
+  /* Small phones */
+  @media (max-width: 400px) {
+    .hero h1 { font-size: 2rem; }
+    .hero-eyebrow { font-size: 0.7rem; }
+    .trust-item { flex: 0 0 100%; border-right: none !important; }
+    .trust-item:nth-last-child(-n+1) { border-bottom: none; }
+    .towns-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr; }
+    .stat-cell { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .stat-cell:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>&#128205; Serving Greater Boston &amp; Eastern Massachusetts</span>
+    <div class="topbar-right">
+      <span>&#10003; Licensed &amp; Insured in MA</span>
+      <span>&#128222; <a href="tel:6179918398" onclick="trackPhoneClick()">617-991-8398</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <img src="https://static.wixstatic.com/media/cebb5c_9fbb5356ec5641e4a60163e3a4484aae~mv2.png"
+         alt="Wrench Guys Logo" class="logo-img">
+
+    <nav id="main-nav">
+      <a href="#services" onclick="closeNav()">Services</a>
+      <a href="#why"      onclick="closeNav()">Why Us</a>
+      <a href="#area"     onclick="closeNav()">Service Area</a>
+      <a href="#schedule"  onclick="closeNav()">Schedule</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="header-phone-wrap">
+      <span class="header-phone-label">Call or Text Anytime</span>
+      <a href="tel:6179918398" onclick="trackPhoneClick()" class="header-phone">617-991-8398</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Greater Boston &amp; Eastern MA HVAC Specialists</div>
+      <h1>Commercial HVAC<br><span>Done Right.</span></h1>
+      <p class="hero-sub">
+        Keeping Greater Boston businesses comfortable year-round. Wrench Guys delivers
+        <strong>expert HVAC repair, installation, and maintenance</strong> for commercial
+        and residential properties across Eastern MA &mdash; fast response, upfront pricing.
+      </p>
+      <div class="hero-actions">
+        <a href="#schedule" class="btn-red">Schedule a Repair</a>
+        <a href="#schedule" class="btn-outline-white">Get a Free Estimate</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-header">
+        <h3>Get Emergency Service</h3>
+        <p>We respond fast &mdash; 24/7 for critical failures</p>
+      </div>
+      <div class="hero-card-body">
+        <div class="hero-card-row">
+          <span class="hcr-icon">&#128205;</span>
+          <span>Serving Boston, Cambridge, Newton, Waltham, Quincy, Somerville &amp; all Eastern MA</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="hcr-icon">&#10003;</span>
+          <span>Licensed, bonded &amp; fully insured in Massachusetts</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="hcr-icon">&#128176;</span>
+          <span>Upfront, flat-rate pricing &mdash; no surprise invoices</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="hcr-icon">&#128336;</span>
+          <span>Emergency dispatch available 24 hours a day, 7 days a week</span>
+        </div>
+      </div>
+      <a href="tel:6179918398" onclick="trackPhoneClick()" class="hero-card-cta">
+        &#128222; Call Now: 617-991-8398
+        <small>Emergency line &mdash; always answered</small>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">&#10003; EPA 608 Certified</div>
+    <div class="trust-item">&#10003; NATE Certified Techs</div>
+    <div class="trust-item">&#10003; MA Licensed &amp; Insured</div>
+    <div class="trust-item">&#10003; Commercial &amp; Residential</div>
+    <div class="trust-item">&#10003; 10+ Years Experience</div>
+    <div class="trust-item">&#10003; Flat-Rate Pricing</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-tag">What We Do</div>
+        <h2>Commercial &amp; Residential<br>HVAC Services</h2>
+        <p class="section-intro">From emergency repairs to full system installs, our certified technicians cover all of Greater Boston and Eastern MA.</p>
+      </div>
+      <a href="#schedule" class="btn-red">Get a Free Quote</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="svc-icon">&#10052;&#65039;</div>
+        <h3>AC Repair &amp; Installation</h3>
+        <p>Central air, ductless mini-splits, and rooftop units. We diagnose fast and fix it right &mdash; all major brands including Carrier, Trane, and Lennox.</p>
+        <a href="#schedule" class="svc-link">Learn More &#8594;</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">&#128293;</div>
+        <h3>Furnace &amp; Heating Repair</h3>
+        <p>Gas furnaces, boilers, heat pumps, and electric systems. Don&rsquo;t get left in the cold &mdash; same-day heating repair available throughout Eastern MA.</p>
+        <a href="#schedule" class="svc-link">Learn More &#8594;</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">&#127777;&#65039;</div>
+        <h3>Heat Pump Services</h3>
+        <p>Installation, repair, and seasonal maintenance for all heat pump systems &mdash; the energy-efficient choice for year-round Boston-area comfort.</p>
+        <a href="#schedule" class="svc-link">Learn More &#8594;</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">&#127970;</div>
+        <h3>Commercial HVAC</h3>
+        <p>RTUs, VRF systems, commercial refrigeration, and restaurant equipment. We know how critical uptime is for your business and treat it accordingly.</p>
+        <a href="#schedule" class="svc-link">Learn More &#8594;</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">&#128295;</div>
+        <h3>Maintenance Plans</h3>
+        <p>Tailored seasonal agreements for commercial properties. Reduce downtime, extend equipment life, and stay ahead of costly breakdowns.</p>
+        <a href="#schedule" class="svc-link">Learn More &#8594;</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">&#128680;</div>
+        <h3>Emergency Repairs &mdash; 24/7</h3>
+        <p>System down at 2am? Technicians on call around the clock for emergency HVAC failures. Commercial and residential. We answer every time.</p>
+        <a href="tel:6179918398" onclick="trackPhoneClick()" class="svc-link">Call Now: 617-991-8398 &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-inner">
+    <div class="section-tag">Why Choose Us</div>
+    <h2>The Wrench Guys Difference</h2>
+    <p class="section-intro">We&rsquo;re not a call center dispatching strangers. We&rsquo;re a local Boston-area team that shows up, does the job, and stands behind our work.</p>
+    <div class="why-layout">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div class="why-text">
+            <h4>Fast Response Across Eastern MA</h4>
+            <p>We&rsquo;re local, so we actually get there quickly. No waiting days for a tech &mdash; most calls are same-day or next-day.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div class="why-text">
+            <h4>Transparent, Upfront Pricing</h4>
+            <p>You know the cost before we start. No diagnostic fees that balloon into mystery invoices &mdash; honest flat-rate pricing every time.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div class="why-text">
+            <h4>Commercial-First Expertise</h4>
+            <p>We understand the restaurant and commercial service world &mdash; we know how critical uptime is and treat your business accordingly.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div class="why-text">
+            <h4>Trusted Network of Licensed Trades</h4>
+            <p>Need electrical, plumbing, or ductwork alongside your HVAC job? Our vetted licensed partners have you covered &mdash; one call does it all.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="creds-card">
+          <div class="creds-card-header">
+            <h4>Licenses &amp; Certifications</h4>
+          </div>
+          <div class="creds-list">
+            <div class="cred-row"><span class="cred-check">&#10004;</span> EPA Section 608 Certified</div>
+            <div class="cred-row"><span class="cred-check">&#10004;</span> NATE Certified Technicians</div>
+            <div class="cred-row"><span class="cred-check">&#10004;</span> MA Contractor License #CS-XXXXXX</div>
+            <div class="cred-row"><span class="cred-check">&#10004;</span> Fully Bonded &amp; Insured</div>
+            <div class="cred-row"><span class="cred-check">&#10004;</span> Commercial Refrigeration Certified</div>
+            <div class="cred-row"><span class="cred-check">&#10004;</span> Carrier, Trane, Lennox Authorized</div>
+          </div>
+          <div class="stats-row">
+            <div class="stat-cell"><span class="stat-num">10+</span><span class="stat-lbl">Years Exp.</span></div>
+            <div class="stat-cell"><span class="stat-num">24/7</span><span class="stat-lbl">Emergency</span></div>
+            <div class="stat-cell"><span class="stat-num">100%</span><span class="stat-lbl">Insured</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="testi-header">
+      <div>
+        <div class="section-tag">Reviews</div>
+        <h2>Trusted by Boston-Area Businesses</h2>
+      </div>
+      <div class="google-badge">
+        <span class="google-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        5.0 on Google Reviews
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Our walk-in cooler went down on a Friday night and Wrench Guys had a tech on-site within two hours. Fixed same night. These guys saved our weekend service &mdash; can&rsquo;t recommend them enough.&rdquo;</blockquote>
+        <div class="testi-reviewer">
+          <strong>Marco T.</strong>
+          <span>Restaurant Owner, Boston, MA</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Finally an HVAC company that explains what they&rsquo;re doing and doesn&rsquo;t upsell you on things you don&rsquo;t need. Pricing was fair, work was clean. Signed up for their maintenance plan.&rdquo;</blockquote>
+        <div class="testi-reviewer">
+          <strong>Sarah K.</strong>
+          <span>Property Manager, Cambridge, MA</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Our office AC died in July &mdash; Joe had someone here the next morning and it was fixed by noon. Everyone else quoted us a week out. Wrench Guys is our go-to from now on.&rdquo;</blockquote>
+        <div class="testi-reviewer">
+          <strong>David L.</strong>
+          <span>Office Manager, Waltham, MA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section id="area">
+  <div class="section-inner">
+    <div class="section-tag" style="color:var(--red-light);">Where We Work</div>
+    <h2>Serving Greater Boston &amp; Eastern Massachusetts</h2>
+    <p class="section-intro">We cover commercial and residential properties across the Boston metro and Eastern MA. Not sure if we reach you? Call &mdash; chances are we do.</p>
+    <div class="area-layout">
+      <div>
+        <div class="towns-grid">
+          <div class="town-row">Boston</div>
+          <div class="town-row">Cambridge</div>
+          <div class="town-row">Somerville</div>
+          <div class="town-row">Waltham</div>
+          <div class="town-row">Newton</div>
+          <div class="town-row">Quincy</div>
+          <div class="town-row">Brookline</div>
+          <div class="town-row">Medford</div>
+          <div class="town-row">Malden</div>
+          <div class="town-row">Revere</div>
+          <div class="town-row">Watertown</div>
+          <div class="town-row">Dedham</div>
+          <div class="town-row">Needham</div>
+          <div class="town-row">Woburn</div>
+          <div class="town-row">Framingham</div>
+          <div class="town-row">Natick</div>
+        </div>
+        <p style="margin-top:16px;font-size:0.8rem;color:#4A5E73;">+ surrounding Eastern MA communities</p>
+      </div>
+      <div class="map-box">
+        <span class="map-i">&#128506;</span>
+        <p>Google Map Embed Goes Here</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY BAND (desktop only) -->
+<div class="emerg-band">
+  <p>&#128680; HVAC Emergency? We&rsquo;re available 24/7 &mdash; <a href="tel:6179918398" onclick="trackPhoneClick()">Call 617-991-8398 right now</a></p>
+</div>
+
+<!-- SCHEDULE / CONTACT -->
+<section id="schedule">
+  <div class="section-inner">
+    <div class="section-tag">Book Online</div>
+    <h2>Schedule a Service Call</h2>
+    <p class="section-intro">Use our online scheduler to book a repair, request an estimate, or set up a maintenance plan. Prefer to talk? Call us anytime &mdash; including emergencies.</p>
+
+    <!-- Contact info strip -->
+    <div class="contact-strip">
+      <div class="contact-chip">
+        <span class="chip-icon">&#128222;</span>
+        <div>
+          <span class="chip-label">Call or Text Anytime</span>
+          <a href="tel:6179918398" onclick="trackPhoneClick()" class="chip-value">617-991-8398</a>
+        </div>
+      </div>
+      <div class="contact-chip">
+        <span class="chip-icon">&#128140;</span>
+        <div>
+          <span class="chip-label">Email</span>
+          <a href="mailto:joe@wrenchguys.com" class="chip-value">joe@wrenchguys.com</a>
+        </div>
+      </div>
+      <div class="contact-chip">
+        <span class="chip-icon">&#128336;</span>
+        <div>
+          <span class="chip-label">Hours</span>
+          <span class="chip-value">6am&ndash;8pm daily &middot; <span style="color:var(--red);font-weight:700;">24/7 Emergency</span></span>
+        </div>
+      </div>
+      <div class="contact-chip">
+        <span class="chip-icon">&#128205;</span>
+        <div>
+          <span class="chip-label">Service Area</span>
+          <span class="chip-value">Greater Boston &amp; Eastern MA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ServiceTitan scheduler -->
+    <div class="scheduler-wrap">
+      <iframe
+        src="https://go.servicetitan.com/webscheduler?tenantid=4581314837"
+        style="width:100%; height:700px; border:none; display:block;"
+        title="Schedule HVAC Service with Wrench Guys"
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="https://static.wixstatic.com/media/cebb5c_9fbb5356ec5641e4a60163e3a4484aae~mv2.png"
+           alt="Wrench Guys" class="footer-logo-img">
+      <p class="footer-about">Commercial &amp; residential HVAC services throughout Greater Boston and Eastern Massachusetts. Licensed, insured, and committed to doing the job right.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/wrenchguys/" class="social-link">ig</a>
+        <a href="https://www.linkedin.com/in/joseph-ackil-1975194a/" class="social-link">in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">AC Repair &amp; Install</a></li>
+        <li><a href="#services">Furnace &amp; Heating</a></li>
+        <li><a href="#services">Heat Pump Services</a></li>
+        <li><a href="#services">Commercial HVAC</a></li>
+        <li><a href="#services">Maintenance Plans</a></li>
+        <li><a href="#services">Emergency Repairs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Service Area</h5>
+      <ul>
+        <li><a href="#area">Boston, MA</a></li>
+        <li><a href="#area">Cambridge, MA</a></li>
+        <li><a href="#area">Newton, MA</a></li>
+        <li><a href="#area">Waltham, MA</a></li>
+        <li><a href="#area">Quincy, MA</a></li>
+        <li><a href="#area">All Eastern MA</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#why">About Wrench Guys</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#schedule">Schedule Online</a></li>
+        <li><a href="tel:6179918398" onclick="trackPhoneClick()">617-991-8398</a></li>
+        <li><a href="mailto:joe@wrenchguys.com">joe@wrenchguys.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Wrench Guys LLC &middot; Greater Boston, MA &middot; All rights reserved.</span>
+    <div class="footer-lic">
+      <span>&#10004;</span> MA Contractor License #CS-XXXXXX &nbsp;&middot;&nbsp; EPA 608 Certified &nbsp;&middot;&nbsp; Fully Insured
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY EMERGENCY BAR -->
+<div class="mobile-sos" id="mobile-sos">
+  <a href="tel:6179918398" onclick="trackPhoneClick()">
+    <span>&#128222;</span>
+    <span>Call Now: 617-991-8398</span>
+  </a>
+  <span class="mobile-sos-sub">24/7 Emergency HVAC &middot; Greater Boston &amp; Eastern MA</span>
+</div>
+
+<script>
+  function toggleNav() {
+    var nav = document.getElementById('main-nav');
+    var btn = document.getElementById('nav-toggle');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeNav() {
+    document.getElementById('main-nav').classList.remove('open');
+    document.getElementById('nav-toggle').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) {
+    var nav = document.getElementById('main-nav');
+    var btn = document.getElementById('nav-toggle');
+    if (!nav.contains(e.target) && !btn.contains(e.target)) closeNav();
+  });
+</script>
+</body>
+</html>
