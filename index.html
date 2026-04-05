@@ -554,7 +554,7 @@
   #area { background: var(--navy); }
   #area h2 { color: var(--white); }
   #area .section-intro { color: #A8BBCF; }
-  .area-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; align-items: start; }
+  .area-layout { margin-top: 48px; }
   .towns-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -562,6 +562,7 @@
     border-radius: 4px;
     overflow: hidden;
     margin-top: 24px;
+    max-width: 600px;
   }
   .town-row {
     display: flex;
@@ -573,21 +574,7 @@
     font-size: 0.87rem;
     color: #A8BBCF;
   }
-  .town-row::before { content: ''; color: var(--red-light); font-size: 0.72rem; }
-  .map-box {
-    background: var(--navy-light);
-    border-radius: 6px;
-    height: 340px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    border: 1px dashed rgba(255,255,255,0.15);
-    color: #A8BBCF;
-  }
-  .map-box .map-i { font-size: 2.8rem; opacity: 0.3; }
-  .map-box p { font-size: 0.8rem; opacity: 0.5; letter-spacing: 0.08em; text-transform: uppercase; }
+  .town-row::before { content: '→'; color: var(--red-light); font-size: 0.72rem; }
 
   /* ── EMERGENCY BAND ── */
   .emerg-band { background: var(--red); padding: 22px 32px; text-align: center; }
@@ -758,8 +745,6 @@
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .why-layout { grid-template-columns: 1fr; gap: 48px; }
     .testi-grid { grid-template-columns: repeat(2, 1fr); }
-    .area-layout { grid-template-columns: 1fr; gap: 40px; }
-    .map-box { height: 260px; }
     .contact-layout { grid-template-columns: 1fr; gap: 40px; }
     .footer-grid { padding: 0 32px 24px; }
     .footer-nav-cols { grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -772,8 +757,8 @@
     .topbar-right { justify-content: center; gap: 12px; }
 
     /* Header */
-    .header-inner { padding: 0 20px; height: 66px; position: relative; }
-    .logo-img { height: 46px; }
+    .header-inner { padding: 0 20px; height: 72px; position: relative; }
+    .logo-img { height: 58px; }
     .header-phone-wrap { display: none; }
     .nav-toggle { display: flex; }
 
@@ -781,7 +766,7 @@
     nav {
       display: none;
       position: absolute;
-      top: 66px; left: 0; right: 0;
+      top: 72px; left: 0; right: 0;
       background: var(--white);
       flex-direction: column;
       gap: 0;
@@ -841,7 +826,6 @@
 
     /* Service area */
     .towns-grid { grid-template-columns: 1fr 1fr; }
-    .map-box { height: 200px; }
 
     /* Hide desktop emerg band; mobile SOS bar takes over */
     .emerg-band { display: none; }
@@ -866,7 +850,6 @@
     .hero-eyebrow { font-size: 0.7rem; }
     .trust-item { flex: 0 0 100%; border-right: none !important; }
     .trust-item:nth-last-child(-n+1) { border-bottom: none; }
-    .towns-grid { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: 1fr; }
     .stat-cell { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .stat-cell:last-child { border-bottom: none; }
@@ -1131,7 +1114,6 @@
     <h2>Serving Greater Boston &amp; Eastern Massachusetts</h2>
     <p class="section-intro">We cover commercial and residential properties across the Boston metro and Eastern MA. Not sure if we reach you? Call &mdash; chances are we do.</p>
     <div class="area-layout">
-      <div>
         <div class="towns-grid">
           <div class="town-row">Boston</div>
           <div class="town-row">Cambridge</div>
@@ -1151,11 +1133,6 @@
           <div class="town-row">Natick</div>
         </div>
         <p style="margin-top:16px;font-size:0.8rem;color:#4A5E73;">+ surrounding Eastern MA communities</p>
-      </div>
-      <div class="map-box">
-        <span class="map-i">&#128506;</span>
-        <p>Google Map Embed Goes Here</p>
-      </div>
     </div>
   </div>
 </section>
